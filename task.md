@@ -1,0 +1,15 @@
+- [ ] Install dependencies (TailwindCSS v4, Framer Motion, react-router-dom, STOMP, SockJS, react-hot-toast)
+- [ ] Configure Vite (TailwindCSS plugin + API/WS proxy)
+- [ ] Update index.html (title, Inter font)
+- [ ] Rewrite index.css (TailwindCSS v4 + glassmorphism utilities)
+- [ ] Create services/api.js (REST wrapper with error toasts)
+- [ ] Create services/websocket.js (STOMP over SockJS)
+- [ ] Create components/AnimatedBackground.jsx
+- [ ] Create components/GlassCard.jsx
+- [ ] Create components/MessageBubble.jsx
+- [ ] Create pages/LoginPage.jsx
+- [ ] Create pages/GroupsPage.jsx
+- [ ] Create pages/ChatPage.jsx
+- [ ] Rewrite main.jsx (BrowserRouter + Toaster)
+- [ ] Rewrite App.jsx (Routes + AnimatePresence)
+- [ ] Verify — dev server compiles clean
