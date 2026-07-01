@@ -1,69 +1,52 @@
 import { motion } from 'framer-motion';
 
 /**
- * Full-viewport animated gradient mesh — WhatsApp dark teal tones.
+ * Full-viewport animated gradient mesh using custom theme tokens.
  */
 export default function AnimatedBackground() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#0b141a]">
-      {/* ── Teal orb ─────────────────────────────── */}
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-page transition-colors duration-300">
+      {/* ── Accent orb 1 ─────────────────────────────── */}
       <motion.div
-        className="absolute w-[420px] h-[420px] rounded-full opacity-25"
+        className="absolute w-[450px] h-[450px] rounded-full opacity-[0.14] dark:opacity-[0.07]"
         style={{
-          background: 'radial-gradient(circle, rgba(0,168,132,0.4) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--accent) 0%, transparent 70%)',
           top: '5%',
           left: '10%',
-          filter: 'blur(90px)',
+          filter: 'blur(80px)',
         }}
         animate={{
-          x: [0, 120, -60, 90, 0],
-          y: [0, -100, 70, -50, 0],
-          scale: [1, 1.2, 0.9, 1.15, 1],
+          x: [0, 80, -40, 60, 0],
+          y: [0, -60, 40, -30, 0],
+          scale: [1, 1.15, 0.95, 1.1, 1],
         }}
         transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* ── Dark-green orb ───────────────────────── */}
+      {/* ── Accent orb 2 ───────────────────────── */}
       <motion.div
-        className="absolute w-[520px] h-[520px] rounded-full opacity-20"
+        className="absolute w-[550px] h-[550px] rounded-full opacity-[0.12] dark:opacity-[0.06]"
         style={{
-          background: 'radial-gradient(circle, rgba(0,92,75,0.4) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--accent) 0%, transparent 70%)',
           top: '45%',
           right: '5%',
           filter: 'blur(100px)',
         }}
         animate={{
-          x: [0, -80, 50, -70, 0],
-          y: [0, 60, -90, 40, 0],
-          scale: [1, 0.9, 1.18, 0.95, 1],
+          x: [0, -60, 30, -50, 0],
+          y: [0, 40, -60, 20, 0],
+          scale: [1, 0.95, 1.15, 0.98, 1],
         }}
         transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* ── Subtle green orb ─────────────────────── */}
-      <motion.div
-        className="absolute w-[360px] h-[360px] rounded-full opacity-15"
-        style={{
-          background: 'radial-gradient(circle, rgba(37,211,102,0.3) 0%, transparent 70%)',
-          bottom: '8%',
-          left: '35%',
-          filter: 'blur(80px)',
-        }}
-        animate={{
-          x: [0, 70, -40, 60, 0],
-          y: [0, -70, 50, -30, 0],
-          scale: [1, 1.12, 0.88, 1.06, 1],
-        }}
-        transition={{ duration: 19, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
       {/* ── Subtle grid overlay ──────────────────── */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
+            'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
         }}
       />
     </div>

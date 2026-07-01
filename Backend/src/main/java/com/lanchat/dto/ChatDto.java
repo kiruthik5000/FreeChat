@@ -1,5 +1,6 @@
 package com.lanchat.dto;
 
+import com.lanchat.entity.MessageTypes;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ChatDto {
-    private String id;
     private String groupId;
     private String senderName;
-    private String message;
+    private MessageTypes type;
+    private String content;
     private LocalDateTime createdAt;
 }

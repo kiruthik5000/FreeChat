@@ -17,8 +17,9 @@ import java.time.LocalDateTime;
 public class Chat extends BaseEntity {
 
     private String name;
+    private MessageTypes type;
     private String groupId;
-    private String message;
+    private String content;
 
     @Indexed(expireAfter = "1d")
     private LocalDateTime expiresAt;

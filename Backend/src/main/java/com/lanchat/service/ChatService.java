@@ -43,6 +43,9 @@ public class ChatService {
 
     // create chat group
     public ChatDto save(ChatDto chat) throws Exception{
+        if (!groupRepository.findById(chat.getGroupId()).isPresent()) {
+
+        }
         if (groupRepository.findByGroupId(chat.getGroupId()).isEmpty()) throw new GroupNotFoundException("Cannot find the group");
         return chatMapper.toDto(chatRepository.save(chatMapper.toEntity(chat)));
     }

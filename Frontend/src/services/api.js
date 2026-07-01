@@ -34,9 +34,19 @@ api.interceptors.response.use(
 export const signUp = (dto) =>
   api.post('/users/create', dto).then((r) => r.data);
 
-/** POST /api/users/login  { uniqueId, password } → boolean */
+/** POST /api/users/login  { uniqueId, password } → User */
 export const login = (dto) =>
   api.post('/users/login', dto).then((r) => r.data);
+
+/* ── OTP ───────────────────────────────────────── */
+
+/** POST /otp/send-otp?email=... → string */
+export const sendOtp = (email) =>
+  axios.post('/otp/send-otp', null, { params: { email }, timeout: 15000 }).then((r) => r.data);
+
+/** POST /otp/verify?email=...&otp=... → string */
+export const verifyOtp = (email, otp) =>
+  axios.post('/otp/verify', null, { params: { email, otp }, timeout: 10000 }).then((r) => r.data);
 
 /* ── Groups ────────────────────────────────────── */
 
@@ -61,3 +71,10 @@ export const getTodayChats = (groupId) =>
 /** GET /api/chats/all?groupId=... → Chat[]  (all history) */
 export const getAllChats = (groupId) =>
   api.get('/chats/all', { params: { groupId } }).then((r) => r.data);
+
+/** POST /api/files/upload  FormData → { url, filename } */
+export const uploadFile = (formData) =>
+  api.post('/files/upload', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  }).then((r) => r.data);
+

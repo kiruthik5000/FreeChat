@@ -14,17 +14,18 @@ public class ChatMapper {
         return Chat.builder()
                 .name(dto.getSenderName())
                 .groupId(dto.getGroupId())
-                .message(dto.getMessage())
+                .type(dto.getType())
+                .content(dto.getContent())
                 .expiresAt(now.plusDays(1))
                 .build();
     }
 
     public ChatDto toDto(Chat chat){
         ChatDto chatDto = new ChatDto();
-        chatDto.setId(chat.getId());
         chatDto.setSenderName(chat.getName());
         chatDto.setGroupId(chat.getGroupId());
-        chatDto.setMessage(chat.getMessage());
+        chatDto.setType(chat.getType());
+        chatDto.setContent(chat.getContent());
         chatDto.setCreatedAt(chat.getCreatedAt());
         return chatDto;
     }
