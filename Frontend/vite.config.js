@@ -13,10 +13,10 @@ export default defineConfig({
     allowedHosts: true, 
     
     proxy: {
-      '/api': 'http://localhost:8080',
-      '/otp': 'http://localhost:8080',
+      '/api': 'http://43.204.31.227:8080',
+      '/otp': 'http://43.204.31.227:8080',
       '/websocket': {
-        target: 'http://localhost:8080',
+        target: 'http://43.204.31.227:8080',
         ws: true,
       },
     },
