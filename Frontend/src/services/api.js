@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 
 /* ── Axios instance ────────────────────────────── */
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,
   headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 });
@@ -42,11 +42,11 @@ export const login = (dto) =>
 
 /** POST /otp/send-otp?email=... → string */
 export const sendOtp = (email) =>
-  axios.post('/otp/send-otp', null, { params: { email }, timeout: 15000 }).then((r) => r.data);
+  api.post('/otp/send-otp', null, { params: { email }, timeout: 15000 }).then((r) => r.data);
 
 /** POST /otp/verify?email=...&otp=... → string */
 export const verifyOtp = (email, otp) =>
-  axios.post('/otp/verify', null, { params: { email, otp }, timeout: 10000 }).then((r) => r.data);
+  api.post('/otp/verify', null, { params: { email, otp }, timeout: 10000 }).then((r) => r.data);
 
 /* ── Groups ────────────────────────────────────── */
 
