@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -22,7 +23,7 @@ import java.util.UUID;
 @RequestMapping("/api/files")
 public class FileController {
 
-    private final Path uploadDir = Paths.get("uploads").toAbsolutePath().normalize();
+    private final Path uploadDir = Paths.get("uploads/"+LocalDate.now().toString()).toAbsolutePath().normalize();
 
     public FileController() {
         try {
