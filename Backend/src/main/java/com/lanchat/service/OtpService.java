@@ -9,7 +9,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -28,7 +27,7 @@ public class OtpService {
 
         String otp = generateOtp();
         Otp dbOtp = new Otp();
-        dbOtp.setExpiryTime(LocalDateTime.now().plusMinutes(10));
+        dbOtp.setExpireAt(LocalDateTime.now().plusMinutes(10));
         dbOtp.setUniqueId(email);
         dbOtp.setOtp(otp);
         otpRepository.save(dbOtp);
@@ -51,7 +50,7 @@ public class OtpService {
         );
 
 
-        if (LocalDateTime.now().isAfter(dbOtpExist.getExpiryTime())) {
+        if (LocalDateTime.now().isAfter(dbOtpExist.getExpireAt())) {
             otpRepository.deleteByUniqueId(email);
             throw new BadRequestException("Otp Expired ");
         }

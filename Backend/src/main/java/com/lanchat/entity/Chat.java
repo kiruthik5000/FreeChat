@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Document(collection = "chats")
@@ -22,5 +23,5 @@ public class Chat extends BaseEntity {
     private String content;
 
     @Indexed(expireAfter = "1d")
-    private LocalDateTime expiresAt;
+    private Instant expiresAt = Instant.now();
 }

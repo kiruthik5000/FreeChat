@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 /* ── Axios instance ────────────────────────────── */
 const api = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}/api`,
-  headers: { 'Content-Type': 'application/json' },
+  headers: {'Content-Type': 'application/json'},
   timeout: 10000,
 });
 
@@ -19,7 +19,7 @@ api.interceptors.response.use(
       'Something went wrong';
 
     console.error(
-      `[API] ${error.config?.method?.toUpperCase()} ${error.config?.url}`,
+      `[${api}] ${error.config?.method?.toUpperCase()} ${error.config?.url}`,
       `→ ${error.response?.status || 'NETWORK'}:`,
       msg,
     );

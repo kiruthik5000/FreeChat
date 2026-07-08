@@ -11,8 +11,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Group extends BaseEntity {
-
-
     private String groupId = UUID.randomUUID().toString();
     private String groupName;
 }

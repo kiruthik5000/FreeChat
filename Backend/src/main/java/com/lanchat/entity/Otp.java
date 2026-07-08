@@ -19,5 +19,6 @@ public class Otp extends BaseEntity{
     private String uniqueId;
     private String otp;
 
-    private LocalDateTime expiryTime;
+    @Indexed(expireAfter = "3600")
+    private LocalDateTime expireAt;
 }

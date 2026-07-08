@@ -18,7 +18,7 @@ export function connectToGroup(groupId, onMessage, onStatusChange, callbacks = {
   disconnect();                       // tear down any previous connection
 
   stompClient = new Client({
-    webSocketFactory: () => new SockJS('/websocket'),
+    webSocketFactory: () => new SockJS('http://localhost:8080/websocket'),
     reconnectDelay: 5000,
     debug: (msg) => console.debug('[STOMP]', msg),
 
@@ -103,7 +103,7 @@ export function connectToGroup(groupId, onMessage, onStatusChange, callbacks = {
  */
 export function subscribeToGroupEvents({ onGroupDeleted, onGroupCreated } = {}) {
   const client = new Client({
-    webSocketFactory: () => new SockJS('/websocket'),
+    webSocketFactory: () => new SockJS('http://localhost:8080/websocket'),
     reconnectDelay: 5000,
     debug: () => {},          // silent for the background listener
 

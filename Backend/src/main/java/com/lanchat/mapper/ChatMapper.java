@@ -4,6 +4,7 @@ import com.lanchat.dto.ChatDto;
 import com.lanchat.entity.Chat;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Component
@@ -16,7 +17,6 @@ public class ChatMapper {
                 .groupId(dto.getGroupId())
                 .type(dto.getType())
                 .content(dto.getContent())
-                .expiresAt(now.plusDays(1))
                 .build();
     }
 
